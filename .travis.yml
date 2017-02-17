@@ -1,0 +1,13 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -r test_requirements.txt
+- pip install tox-travis
+script:
+  tox
+after_success:
+- coveralls
+notifications:
+  slack:
+    secure: paYIR9J1HS/hx266gJ4TIrZSJH+YrpCqNu/H/wFQRf5kCTkz+po8ekwH6t9HkKHXlTGhMfRJ2LpwYB02mBXfOgIAchaepMYQ6804j4wRHni15Wyqde62f7qgIyD6p9zmAIEmS1x4Gl6bfVXeEkEla6NRVtQbarRsfvJr9dcYhRcU8rjVvrq6k7A74vNPDeZ4C161U4OAHAIFB3NdnVdXAcrpi9wJh8FabBUmaru0qeCPi54Oi8z7gmiJJI+hUySGBca0EyvkcqaYb7Sa8uoFhAvxaiCr3cz9IWuQd0FhbtKdwoCJs/aUEz1yho6DyxQpj6eGDQiErljXfE1tDwnQtoONqUdz2v/dHcV7RBZJ8DKUKNfygvKHDt9/9OMlSp6lacytJQ+7SvDCRMYGaes0ITSxIZ7UZyFtoP/yKQVk3tUbTuB7jgcq/NaSias/HlfdYCS69bXIESPTSNbeQJViX+JLRleC7RABCHmULHLpt8e3AKLAyadK1/Hy04V3LdtU/6dea7zjvm9CLcaR3cGuCFCk0jnzHCNktB9fY2eGOwRfkWsT6E3XkeDXRx3QSgkpUIiyLrVkSHnnsC0Og4UcaYqykoGXzo2XpIruOPYXUlMBxHHp/4jE18/aDrOB6hx9P7EoIOPXd5ykapuVPmZrmniAqXLJCW8TyDhrA78CVXc=
