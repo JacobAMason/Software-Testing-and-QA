@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def em():
     from Assignment1.email_verifier import EmailVerifier
