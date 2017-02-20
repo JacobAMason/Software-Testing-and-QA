@@ -5,5 +5,6 @@ class CommandLineInterface:
     def hello_world(self):
         return "hello world"
 
+
 if __name__ == '__main__':
     CLI = CommandLineInterface()
