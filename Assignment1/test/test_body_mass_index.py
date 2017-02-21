@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def bmi():
     from Assignment1.body_mass_index import BodyMassIndex

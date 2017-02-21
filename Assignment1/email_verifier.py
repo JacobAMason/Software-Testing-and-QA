@@ -1,10 +1,9 @@
+import re
+
+
 class EmailVerifier:
-    def __init__(self):
-        pass
+    emailPattern = re.compile(r"^\w+[\w.]+@(\w+\.+\w+)+$")
 
-    def hello_world(self):
-        return "hello world"
-
-
-if __name__ == '__main__':
-    EM = EmailVerifier()
+    @staticmethod
+    def is_valid_email(address):
+        return bool(EmailVerifier.emailPattern.match(str(address)))

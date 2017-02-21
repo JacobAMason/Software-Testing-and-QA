@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def df():
     from Assignment1.distance_formula import DistanceFormula
