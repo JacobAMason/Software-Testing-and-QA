@@ -6,4 +6,4 @@ class EmailVerifier:
 
     @staticmethod
     def is_valid_email(address):
-        return bool(EmailVerifier.emailPattern.match(address))
+        return bool(EmailVerifier.emailPattern.match(str(address)))

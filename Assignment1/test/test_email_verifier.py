@@ -49,3 +49,11 @@ def test_period_only_subdomain(em):
 
 def test_email_with_numerals(em):
     assert em.is_valid_email("j4c0b@j4c0bm4s0n.n3t")
+
+
+def test_empty_string(em):
+    assert not em.is_valid_email("")
+
+
+def test_non_string(em):
+    assert not em.is_valid_email(42)
