@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def cli():
     from Assignment1.command_line_interface import CommandLineInterface

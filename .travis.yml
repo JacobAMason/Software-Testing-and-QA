@@ -4,6 +4,8 @@ python:
 install:
 - pip install -r test_requirements.txt
 - pip install tox-travis
+before_script:
+  tox -e flake8
 script:
   tox
 after_success:

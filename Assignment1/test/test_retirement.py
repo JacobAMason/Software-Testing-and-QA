@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def r():
     from Assignment1.retirement import Retirement
