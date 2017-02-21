@@ -30,8 +30,22 @@ def test_bmi_calculation(bmi):
                              bmi.weight) == approx(22.7, rel=1e-2)
 
 
-def test_bmi_category(bmi):
+def test_bmi_category_normal(bmi):
     # might have goofed this calcing bmi here isn't great
     bmi.height_inches = bmi.convert_height_inches(bmi.feet, bmi.inches)
     bmi.mass_index = bmi.calculate_bmi(bmi.height_inches, bmi.weight)
     assert bmi.determine_bmi_category(bmi.mass_index) == "Normal"
+
+
+def test_bmi_category_underweight(bmi):
+    # might have goofed this calcing bmi here isn't great
+    bmi.height_inches = bmi.convert_height_inches(bmi.feet, bmi.inches)
+    bmi.mass_index = bmi.calculate_bmi(63, 20)
+    assert bmi.determine_bmi_category(bmi.mass_index) == "Underweight"
+
+
+def test_bmi_category_overweight(bmi):
+    # might have goofed this calcing bmi here isn't great
+    bmi.height_inches = bmi.convert_height_inches(bmi.feet, bmi.inches)
+    bmi.mass_index = bmi.calculate_bmi(63, 140)
+    assert bmi.determine_bmi_category(bmi.mass_index) == "Overweight"
