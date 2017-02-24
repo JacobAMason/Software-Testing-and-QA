@@ -79,12 +79,14 @@ def test_distance_is_1_each_axis_neg_val(df):
 
 def test_distance_both_axes_extreme_x(df):
     # Extreme difference in x values should override the difference in y
-    assert df.compute_distance(2, 0, 1000000000, 10) == pytest.approx(1000000000)
+    assert df.compute_distance(2, 0, 1000000000, 10) == pytest.approx(
+        1000000000)
 
 
 def test_distance_both_axes_extreme_y(df):
     # Extreme difference in y values should override the difference in x
-    assert df.compute_distance(0, 0, 20, 1000000000) == pytest.approx(1000000000)
+    assert df.compute_distance(0, 0, 20, 1000000000) == pytest.approx(
+        1000000000)
 
 
 def test_distance_both_axes_shorter_than_1(df):
