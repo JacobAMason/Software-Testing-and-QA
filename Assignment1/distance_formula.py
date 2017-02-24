@@ -1,21 +1,15 @@
 from math import sqrt
 
 
-class DistanceFormula:
-    def __init__(self, x1, y1, x2, y2):
-        self.x1 = x1
-        self.y1 = y1
-        self.x2 = x2
-        self.y2 = y2
-        self.distance = 0
+class DistanceFormulaCalculator:
+    def __init__(self):
+        pass
 
-    def hello_world(self):
-        return "hello world"
-
-    def compute_distance(self):
-        self.distance = sqrt((self.x1 - self.x2)**2 + (self.y1 - self.y2)**2)
-        return self.distance
+    @staticmethod
+    def compute_distance(x1, y1, x2, y2):
+        distance = sqrt((x1 - x2)**2 + (y1 - y2)**2)
+        return distance
 
 
 if __name__ == '__main__':
-    DF = DistanceFormula(0, 0, 0, 0)
+    DF = DistanceFormulaCalculator()
