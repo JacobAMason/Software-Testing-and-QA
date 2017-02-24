@@ -3,22 +3,22 @@ class BodyMassIndexCalculator:
     # https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm
 
     @staticmethod
-    def convert_weight(weight):
-        return weight * 0.45
+    def convert_lbs_to_kgs(lbs):
+        return lbs * 0.45
 
     @staticmethod
-    def convert_height_inches(feet, inches):
+    def convert_height_to_inches(feet, inches):
         return (feet * 12) + inches
 
     @staticmethod
-    def convert_height_metric(height_inches):
+    def convert_inches_to_meters(height_inches):
         return height_inches * 0.025
 
     @staticmethod
-    def calculate_bmi(height_inches, weight):
-        metric_height = BodyMassIndexCalculator.\
-            convert_height_metric(height_inches)
-        metric_weight = BodyMassIndexCalculator.convert_weight(weight)
+    def calculate_bmi(height_inches, lbs):
+        metric_height = BodyMassIndexCalculator.convert_inches_to_meters(
+            height_inches)
+        metric_weight = BodyMassIndexCalculator.convert_lbs_to_kgs(lbs)
         height_squared = metric_height * metric_height
         return metric_weight / height_squared
 
