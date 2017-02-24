@@ -13,10 +13,16 @@ def test_hello_world(df):
 
 
 def test_distance_is_0(df):
-    assert df.compute_distance() == 0
+    assert df.compute_distance() == approx(0)
 
 
 def test_distance_is_1_x_axis_only(df):
     df.x1 = 2
     df.x2 = 1
+    assert df.compute_distance() == approx(1)
+
+
+def test_distance_is_1_y_axis_only(df):
+    df.y1 = 2
+    df.y2 = 1
     assert df.compute_distance() == approx(1)
