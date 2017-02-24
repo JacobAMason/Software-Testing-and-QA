@@ -1,4 +1,4 @@
-def year_can_retire(age, salary, saving, goal):
+def year_can_retire(age, salary, percent_saving, goal):
     """
     Input user's current age, annual salary, percentage saved (savings matched
     by employer - so double amount saved). Input desired retirement savings
@@ -6,7 +6,7 @@ def year_can_retire(age, salary, saving, goal):
     100 years(therefore, indicate if the savings goal is not met).
     :param age: current age of individual
     :param salary:
-    :param saving:
+    :param percent_saving:
     :param goal:
     :return:
     """
@@ -17,7 +17,7 @@ def year_can_retire(age, salary, saving, goal):
     if isinstance(salary, (int, float)) is False:
         raise ValueError("Salary must be a number!")
 
-    if isinstance(saving, (int, float)) is False:
+    if isinstance(percent_saving, (int, float)) is False:
         raise ValueError("Saving must be a number!")
 
     if isinstance(goal, (int, float)) is False:
@@ -26,13 +26,16 @@ def year_can_retire(age, salary, saving, goal):
     if age < 0:
         raise ValueError("Can not have a negative age")
 
-    if salary <= 0:
-        raise ValueError("Can not have a positive salary")
+    if salary < 0:
+        raise ValueError("Salary must be greater than 0")
 
-    if saving > 1 or saving < 0:
+    if percent_saving > 1 or percent_saving < 0:
         raise ValueError("Saving must be bound between 0 and 1")
 
     if goal < 0:
         raise ValueError("Can not have a negative goal")
 
-    return min(age + (goal / (salary*saving*2)), 100)
+    if goal > 0 and (salary == 0 or percent_saving == 0):
+        return 100
+
+    return min(age + (goal / (salary * percent_saving * 2)), 100)
