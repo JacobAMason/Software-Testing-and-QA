@@ -26,3 +26,12 @@ def test_distance_is_1_y_axis_only(df):
     df.y1 = 2
     df.y2 = 1
     assert df.compute_distance() == approx(1)
+
+
+def test_distance_is_1_each_axis(df):
+    df.y1 = 2
+    df.y2 = 1
+    df.x1 = 2
+    df.x2 = 1
+    # Difference of 1 on each axis should produce square root(2)overall
+    assert df.compute_distance() == approx(1.414213562)
