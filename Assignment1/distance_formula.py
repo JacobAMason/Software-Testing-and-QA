@@ -10,6 +10,7 @@ class DistanceFormula:
         return "hello world"
 
     def compute_distance(self):
+        self.distance = self.x1 - self.x2
         return self.distance
 
 
