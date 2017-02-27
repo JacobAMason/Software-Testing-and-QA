@@ -119,10 +119,10 @@ class CommandLineInterface:
 
 if __name__ == '__main__':
     while True:
-        print(CommandLineInterface.get_commands())
+        print(CommandLineInterface.get_commands()+"\n")
         command = input("> ")
 
         if command == 'exit':
             exit()
 
-        CommandLineInterface.run_command(command)
+        print(CommandLineInterface.run_command(command)+"\n")
