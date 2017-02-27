@@ -23,40 +23,49 @@ class TestFunctionality():
 class TestBoundaries():
 
     def test_should_throw_error_with_negative_age(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(-10, 1, 0, 0)
+        assert "Can not have a negative age" in str(excinfo.value)
 
-    def test_should_throw_error_with_neagtive_salary(self):
-        with pytest.raises(ValueError):
+    def test_should_throw_error_with_negative_salary(self):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(10, -1, 0, 0)
+        assert "Salary must be greater than 0" in str(excinfo.value)
 
     def test_should_throw_error_with_negative_savings(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(10, 1, -1, 0)
-
-    def test_should_throw_error_with_negative_goal(self):
-        with pytest.raises(ValueError):
-            year_can_retire(0, 1, 0, -1)
+        assert "Saving must be bound between 0 and 1" in str(excinfo.value)
 
     def test_should_throw_error_with_savings_larger_than_one(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(0, 1, 2, 1)
+        assert "Saving must be bound between 0 and 1" in str(excinfo.value)
+
+    def test_should_throw_error_with_negative_goal(self):
+        with pytest.raises(ValueError) as excinfo:
+            year_can_retire(0, 1, 0, -1)
+        assert "Can not have a negative goal" in str(excinfo.value)
 
 
 class TestValidateInputType():
 
     def test_should_raise_error_when_age_is_not_a_number(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire("0", 1, 1, 1)
+        assert "Age must be a number!" in str(excinfo.value)
 
     def test_should_raise_error_when_salary_is_not_a_number(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(0, "1", 1, 1)
+        assert "Salary must be a number!" in str(excinfo.value)
 
     def test_should_raise_error_when_saving_is_not_a_number(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(0, 1, "1", 1)
+        assert "Saving must be a number!" in str(excinfo.value)
 
     def test_should_raise_error_when_goal_is_not_a_number(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError) as excinfo:
             year_can_retire(0, 1, 1, "1")
+        assert "Goal must be a number!" in str(excinfo.value)
