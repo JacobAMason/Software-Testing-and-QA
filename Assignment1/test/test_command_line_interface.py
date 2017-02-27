@@ -14,6 +14,15 @@ class TestValidateCommands:
         assert CommandLineInterface.run_command("") == \
                "Need command.."
 
+    def test_should_return_list_of_commands(self):
+        assert CommandLineInterface.get_commands() == \
+               "commands: " \
+               "\n\temailval <email>" \
+               "\n\tbmi <feet> <inches> <weight>" \
+               "\n\tdist <x1> <y1> <x2> <y2>" \
+               "\n\tretire <age> <salary> <percent saving> <goal>" \
+               "\n\texit"
+
 
 class TestValidateEmailCommand:
     def test_returns_bad_with_wrong_number_of_arguements(self):

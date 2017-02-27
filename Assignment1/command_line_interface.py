@@ -7,12 +7,13 @@ from Assignment1.body_mass_index_calculator import BodyMassIndexCalculator
 class CommandLineInterface:
 
     @staticmethod
-    def get_commands(self):
+    def get_commands():
         return "commands: " \
                "\n\temailval <email>" \
                "\n\tbmi <feet> <inches> <weight>" \
                "\n\tdist <x1> <y1> <x2> <y2>" \
-               "\n\tretire <age> <salary> <percent saving> <goal>"
+               "\n\tretire <age> <salary> <percent saving> <goal>" \
+               "\n\texit"
 
     @staticmethod
     def run_command(command):
@@ -108,21 +109,20 @@ class CommandLineInterface:
             inches = float(args[2])
             weight = float(args[3])
 
-            try:
-                bmi = BodyMassIndexCalculator.calculate_bmi((feet*12)+inches,
-                                                            weight)
-                category = BodyMassIndexCalculator.determine_bmi_category(bmi)
+            bmi = BodyMassIndexCalculator.calculate_bmi((feet*12)+inches,
+                                                        weight)
+            category = BodyMassIndexCalculator.determine_bmi_category(bmi)
 
-                return "You have a BMI of {0:.2f} making you {1}"\
-                    .format(bmi, category)
-            except ValueError as err:
-                return "Error running command:\n\t{0}".format(err)
-
-        if args[0] == 'exit':
-            exit(0)
+            return "You have a BMI of {0:.2f} making you {1}"\
+                .format(bmi, category)
 
 
 if __name__ == '__main__':
     while True:
         print(CommandLineInterface.get_commands())
-        CommandLineInterface.run_command(input("> "))
+        command = input("> ")
+
+        if command == 'exit':
+            exit()
+
+        CommandLineInterface.run_command(command)
