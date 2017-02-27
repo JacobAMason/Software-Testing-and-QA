@@ -23,7 +23,7 @@ class CommandLineInterface:
         :return:
         """
 
-        if isinstance(command, str) is False:
+        if not isinstance(command, str):
             return "Command must be type string!"
 
         if command == "":
@@ -94,6 +94,7 @@ class CommandLineInterface:
             except ValueError as err:
                 return "Error running command:\n\t{0}".format(err)
 
+        # BMI
         if args[0] == 'bmi':
 
             if len(args) != 4:

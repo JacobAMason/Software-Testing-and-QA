@@ -7,8 +7,8 @@ class TestValidateCommands:
         assert CommandLineInterface.run_command(None) == \
                "Command must be type string!"
 
-    def test_returns_bad_arguement_when_bad_arguement(self):
-        assert CommandLineInterface.run_command("bad arguement") == \
+    def test_returns_bad_argument_when_bad_argument(self):
+        assert CommandLineInterface.run_command("bad argument") == \
                "Bad argument: bad"
 
     def test_returns_need_command_when_empty_string(self):
@@ -30,7 +30,7 @@ class TestValidateCommands:
 
 
 class TestValidateEmailCommand:
-    def test_returns_bad_with_wrong_number_of_arguements(self):
+    def test_returns_bad_with_wrong_number_of_arguments(self):
         assert CommandLineInterface.run_command("emailval a b") == \
                "emailval takes only 1 arguments"
 
@@ -44,7 +44,7 @@ class TestValidateEmailCommand:
 
 
 class TestValidateDistanceCommand:
-    def test_return_bad_with_wrong_number_of_arguements(self):
+    def test_return_bad_with_wrong_number_of_arguments(self):
         assert CommandLineInterface.run_command("dist a b") == \
                "dist takes 4 arguments"
 
@@ -58,7 +58,7 @@ class TestValidateDistanceCommand:
 
 
 class TestValidateRetirementCommand:
-    def test_return_bad_with_wrong_number_of_arguements(self):
+    def test_return_bad_with_wrong_number_of_arguments(self):
         assert CommandLineInterface.run_command("retire a b") == \
                "dist takes 4 arguments"
 
@@ -66,17 +66,17 @@ class TestValidateRetirementCommand:
         assert CommandLineInterface.run_command(
             "retire 35 100000 0.1 500000") == "You can retire at: 60.0"
 
-    def test_retire_recovers_from_invalid_aruements(self):
+    def test_retire_recovers_from_invalid_arguments(self):
         assert CommandLineInterface.run_command("retire h 1 3 1") == \
                "Invalid argument: h"
 
-    def test_retire_recovers_from_unbounded_aruements(self):
+    def test_retire_recovers_from_unbounded_arguments(self):
         assert CommandLineInterface.run_command("retire -35 100 0.1 500") == \
                "Error running command:\n\tCan not have a negative age"
 
 
 class TestValidateBMICommand:
-    def test_return_bad_with_wrong_number_of_arguements(self):
+    def test_return_bad_with_wrong_number_of_arguments(self):
         assert CommandLineInterface.run_command("bmi a b") == \
                "bmi takes 3 arguments"
 
@@ -84,6 +84,6 @@ class TestValidateBMICommand:
         assert CommandLineInterface.run_command("bmi 5 11 150") == \
                "You have a BMI of 21.42 making you Normal"
 
-    def test_bmi_recovers_from_invalid_aruements(self):
+    def test_bmi_recovers_from_invalid_arguments(self):
         assert CommandLineInterface.run_command("bmi a b c") == \
                "Invalid argument: a"
