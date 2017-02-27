@@ -91,3 +91,8 @@ def test_distance_both_axes_extreme_y(df):
 
 def test_distance_both_axes_shorter_than_1(df):
     assert df.compute_distance(0, 0, 0.3, 0.5) == pytest.approx(0.5830951895)
+
+
+def test_non_number_input(df):
+    with pytest.raises(TypeError, message="Values must be numbers"):
+        df.compute_distance("a", "b", "c", "d")
