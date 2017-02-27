@@ -1,3 +1,4 @@
+import pytest
 from Assignment1.command_line_interface import CommandLineInterface
 
 
@@ -22,6 +23,10 @@ class TestValidateCommands:
                "\n\tdist <x1> <y1> <x2> <y2>" \
                "\n\tretire <age> <salary> <percent saving> <goal>" \
                "\n\texit"
+
+    def test_should_exit_program(self):
+        with pytest.raises(SystemExit):
+            CommandLineInterface.run_command("exit")
 
 
 class TestValidateEmailCommand:

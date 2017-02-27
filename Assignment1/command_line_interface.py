@@ -116,13 +116,11 @@ class CommandLineInterface:
             return "You have a BMI of {0:.2f} making you {1}"\
                 .format(bmi, category)
 
+        if args[0] == 'exit':
+            exit()
+
 
 if __name__ == '__main__':
     while True:
         print(CommandLineInterface.get_commands()+"\n")
-        command = input("> ")
-
-        if command == 'exit':
-            exit()
-
-        print(CommandLineInterface.run_command(command)+"\n")
+        print(CommandLineInterface.run_command(input("> "))+"\n")
