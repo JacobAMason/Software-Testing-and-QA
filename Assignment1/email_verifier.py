@@ -2,7 +2,7 @@ import re
 
 
 class EmailVerifier:
-    emailPattern = re.compile(r"^\w+[\w.]+@(\w+\.+\w+)+$")
+    emailPattern = re.compile(r"^\w+[\w.]+@(\w+\.)+(\w\w\w)$")
 
     @staticmethod
     def is_valid_email(address):

@@ -40,7 +40,7 @@ def test_period_only_username(em):
 
 
 def test_multiple_subdomains(em):
-    assert em.is_valid_email("jacob@jacob.mason.net.edu")
+    assert em.is_valid_email("jacob@jacobmason.net.edu")
 
 
 def test_period_only_subdomain(em):
@@ -57,3 +57,8 @@ def test_empty_string(em):
 
 def test_non_string(em):
     assert not em.is_valid_email(42)
+
+
+def test_accepts_only_3_character_tlds(em):
+    assert em.is_valid_email("jacob@jacobmason.valid.net")
+    assert not em.is_valid_email("jacob@jacobmason.net.invalid")
