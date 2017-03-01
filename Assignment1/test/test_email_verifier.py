@@ -59,6 +59,7 @@ def test_non_string(em):
     assert not em.is_valid_email(42)
 
 
-def test_accepts_only_3_character_tlds(em):
+def test_accepts_1_to_3_character_tlds(em):
+    assert em.is_valid_email("jacob@jacobmason.valid.n")
     assert em.is_valid_email("jacob@jacobmason.valid.net")
-    assert not em.is_valid_email("jacob@jacobmason.net.invalid")
+    assert not em.is_valid_email("jacob@jacobmason.notv.alid")
