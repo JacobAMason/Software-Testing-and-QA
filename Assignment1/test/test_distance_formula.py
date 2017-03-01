@@ -94,5 +94,6 @@ def test_distance_both_axes_shorter_than_1(df):
 
 
 def test_non_number_input(df):
-    with pytest.raises(TypeError, message="Values must be numbers"):
+    with pytest.raises(TypeError) as excinfo:
         df.compute_distance("a", "b", "c", "d")
+    assert str(excinfo.value) == "Values must be numbers"
